@@ -1,18 +1,18 @@
 #! /bin/bash -x
 
 echo "Welcome to EmpWage"
-empCheck=$((RANDOM%2))
-#constant variable
-IS_PRESENT=1
+empcheck=$(( RANDOM%3 ))
+is_present=1
+is_present_parttime=2
 emp_rate=20
-empHrs=8
 
-#selection
-if [ $empCheck -eq $IS_PRESENT ]
+if [ $empcheck -eq $is_present ]
 then
-	salary=$(( empHrs * emp_rate ))
-	echo "emp is present"
+	emphrs=8
+elif [ $empckeck -eq $is_present_parttime]
+then
+	emphrs=4
 else
-	salary=0
-	echo "emp is absent"
+	emphrs=0
 fi
+salary=$(( emphrs * emp_rate ))
