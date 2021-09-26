@@ -6,13 +6,12 @@ is_present=1
 is_present_parttime=2
 emp_rate=20
 
-if [ $empcheck -eq $is_present ]
-then
-	emphrs=8
-elif [ $empckeck -eq $is_present_parttime]
-then
-	emphrs=4
-else
-	emphrs=0
-fi
+case $empcheck in
+$is_present)
+	emphrs=8 ;;
+$is_present_parttime)
+	emphrs=4 ;;
+*)
+	emphrs=0 ;;
+esac
 salary=$(( emphrs * emp_rate ))
