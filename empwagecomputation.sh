@@ -7,8 +7,10 @@ is_present_parttime=2
 emp_rate=20
 total_working_day=20
 total_work_hr=0
+max_working_hr=80
+day=1
 
-for((day=1;day<=$total_working_day;day++))
+while(($day<=$total_working_day && $total_work_hr < $max_working_hr))
 do
 	empcheck=$((RANDOM%3))
 
@@ -20,6 +22,7 @@ do
 	*)
 	emphrs=0 ;;
 	esac
+	((day++))
 	total_work_hr=$(( total_work_hr + emphrs ))
 	salary=$(( emphrs * emp_rate ))
 done
